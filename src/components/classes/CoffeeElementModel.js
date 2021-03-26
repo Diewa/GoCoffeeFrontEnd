@@ -3,9 +3,10 @@ export default class CoffeeElementModel {
     producer = ""
     imageUrl = ""
 
-    constructor(name, producer) {
+    constructor(name, producer, imageUrl) {
         this.name = name
         this.producer = producer
+        this.imageUrl = imageUrl
     }
 
 
@@ -15,5 +16,9 @@ export default class CoffeeElementModel {
 
     getProducer() {
         return this.producer
+    }
+
+    getImageUrl() {
+        return this.imageUrl
     }
 }

@@ -1,9 +1,8 @@
 <template>
-  <div>
-    <span>Coffee List:</span>
-    <li v-for="coffee in coffeeList" v-bind:key="coffee">
+  <div class="list-container">
+    <div class="list-element" v-for="coffee in coffeeList" v-bind:key="coffee">
       <CoffeeElement :coffee=coffee />
-    </li>
+    </div>
   </div>
 </template>
 
@@ -24,8 +23,23 @@ export default {
   mounted() {
     getCoffeeList()
         .then(response => {
-          this.coffeeList.push(new CoffeeElementModel(response.name, response.producer))
+          this.coffeeList.push(new CoffeeElementModel(response.name, response.producer, response.imageUrl))
         })
   },
 }
 </script>
+
+<style scoped>
+.list-container {
+  margin-top: 50px;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.list-element {
+  width: 80%;
+  display: inline-block;
+  text-align: center;
+}
+</style>
